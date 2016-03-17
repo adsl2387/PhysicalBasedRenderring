@@ -1,0 +1,13 @@
+//
+// FX Version: fx_5_0
+//
+// 2 local object(s)
+//
+TextureCube EnvMap;
+SamplerState EnvMapSampler
+{
+    Filter   = uint(MIN_MAG_LINEAR_MIP_POINT /* 20 */);
+    AddressU = uint(WRAP /* 1 */);
+    AddressV = uint(WRAP /* 1 */);
+};
+
