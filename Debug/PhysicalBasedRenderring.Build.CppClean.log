@@ -17,14 +17,10 @@ E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\EFFECTS.OBJ
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\GAMETIMER.OBJ
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\GEOMETRYGENERATOR.OBJ
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\LIGHTHELPER.OBJ
-E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.4176.read.1.tlog
-E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.4176.write.1.tlog
-E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.4176-cvtres.read.1.tlog
-E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.4176-cvtres.write.1.tlog
-E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.4232.read.1.tlog
-E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.4232.write.1.tlog
-E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.4232-cvtres.read.1.tlog
-E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.4232-cvtres.write.1.tlog
+E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.9232.read.1.tlog
+E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.9232.write.1.tlog
+E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.9232-cvtres.read.1.tlog
+E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.9232-cvtres.write.1.tlog
 E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.command.1.tlog
 E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.read.1.tlog
 E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\link.write.1.tlog
@@ -47,6 +43,7 @@ E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\rc.command.1.tl
 E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\rc.read.1.tlog
 E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\rc.write.1.tlog
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\RENDERSTATES.OBJ
+E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\SKY.OBJ
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\STDAFX.OBJ
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\TEXTUREMGR.OBJ
 E:\D3DCode\PhysicalBasedRenderring\PhysicalBasedRenderring\Debug\vc100.idb
@@ -54,7 +51,8 @@ E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\VC100.PDB
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\VERTEX.OBJ
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\WAVES.OBJ
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\DEBUG\XNACOLLISION.OBJ
-E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\FX\BASIC.FXO
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\FX\BRDF.FXO
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\FX\COMMONPASS.FXO
 E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\FX\LIGHTHELPER.FXO
+E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\FX\MATERIAL.FXO
+E:\D3DCODE\PHYSICALBASEDRENDERRING\PHYSICALBASEDRENDERRING\FX\SKY.FXO
