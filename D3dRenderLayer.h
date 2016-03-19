@@ -1,5 +1,6 @@
 #pragma once
 #include "irenderlayerinterface.h"
+#include "IBuffer.h"
 
 class D3dRenderLayer :
 	public IRenderLayerInterface
@@ -10,9 +11,9 @@ public:
 
 	virtual bool InitDevice();
 
-	virtual bool SetVertexBuffer(void* pBuffer) ;
+	virtual bool SetVertexBuffer(IBuffer* pBuffer) ;
 
-	virtual bool SetIndexBuffer(void* pBuffer) ;
+	virtual bool SetIndexBuffer(IBuffer* pBuffer) ;
 
 	virtual Shader* CreateAndCompileShader(const char* filename);
 
@@ -21,5 +22,7 @@ public:
 	virtual bool SetPixelShader(Shader* shader);
 
 	virtual void SetRenderState(RenderState* state);
+
+	
 };
 

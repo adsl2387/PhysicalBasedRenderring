@@ -1,10 +1,10 @@
 #pragma once
-
+#include "IBuffer.h"
 class Shader;
 class RenderState;
 typedef unsigned int UINT;
 
-class IRenderLayerInterface
+class IRenderLayerInterface: public PBObject
 {
 public:
 	IRenderLayerInterface(void);
@@ -12,9 +12,9 @@ public:
 
 	virtual bool InitDevice() = 0;
 
-	virtual bool SetVertexBuffer(void* pBuffer) = 0;
+	virtual bool SetVertexBuffer(IBuffer* pBuffer) = 0;
 
-	virtual bool SetIndexBuffer(void* pBuffer) = 0;
+	virtual bool SetIndexBuffer(IBuffer* pBuffer) = 0;
 
 	virtual Shader* CreateAndCompileShader(const char* filename) = 0;
 

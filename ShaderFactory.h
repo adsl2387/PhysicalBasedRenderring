@@ -1,9 +1,10 @@
 #pragma once
+#include "PBObject.h"
 #include "Shader.h"
 #include <map>
 using namespace std;
 
-class ShaderFactory
+class ShaderFactory: public PBObject
 {
 public:
 	ShaderFactory(void);
