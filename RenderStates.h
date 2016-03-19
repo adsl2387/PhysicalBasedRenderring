@@ -9,6 +9,12 @@
 
 #include "d3dUtil.h"
 
+class RenderState
+{
+public:
+	RenderState(){};
+};
+
 class RenderStates
 {
 public:
