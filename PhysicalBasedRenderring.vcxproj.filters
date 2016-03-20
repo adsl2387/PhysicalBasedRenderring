@@ -93,6 +93,27 @@
     <ClInclude Include="ClassMacro.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="IRenderLayerInterface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderFactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="D3dRenderLayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PBObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ITexture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -144,6 +165,27 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Sky.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IRenderLayerInterface.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderFactory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="D3dRenderLayer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PBObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ITexture.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

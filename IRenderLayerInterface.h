@@ -16,7 +16,7 @@ public:
 
 	virtual bool SetIndexBuffer(IBuffer* pBuffer) = 0;
 
-	virtual Shader* CreateAndCompileShader(const char* filename) = 0;
+	virtual Shader* CreateShaderFromFile(const char* filename) = 0;
 
 	virtual bool SetVertexShader(Shader* shader) = 0;
 

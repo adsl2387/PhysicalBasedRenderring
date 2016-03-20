@@ -126,10 +126,17 @@
     <ClInclude Include="..\..\Common\xnacollision.h" />
     <ClInclude Include="ClassMacro.h" />
     <ClInclude Include="D3DPBRApp.h" />
+    <ClInclude Include="D3dRenderLayer.h" />
     <ClInclude Include="Effects.h" />
+    <ClInclude Include="IBuffer.h" />
+    <ClInclude Include="IRenderLayerInterface.h" />
+    <ClInclude Include="ITexture.h" />
+    <ClInclude Include="PBObject.h" />
     <ClInclude Include="PhysicalBasedRenderring.h" />
     <ClInclude Include="RenderStates.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderFactory.h" />
     <ClInclude Include="Sky.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -147,9 +154,16 @@
     <ClCompile Include="..\..\Common\Waves.cpp" />
     <ClCompile Include="..\..\Common\xnacollision.cpp" />
     <ClCompile Include="D3DPBRApp.cpp" />
+    <ClCompile Include="D3dRenderLayer.cpp" />
     <ClCompile Include="Effects.cpp" />
+    <ClCompile Include="IBuffer.cpp" />
+    <ClCompile Include="IRenderLayerInterface.cpp" />
+    <ClCompile Include="ITexture.cpp" />
+    <ClCompile Include="PBObject.cpp" />
     <ClCompile Include="PhysicalBasedRenderring.cpp" />
     <ClCompile Include="RenderStates.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="ShaderFactory.cpp" />
     <ClCompile Include="Sky.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -105,6 +105,11 @@ typedef enum PB_Format
 	PBGI_FORMAT_FORCE_UINT                  = 0xffffffff
 };
 
+typedef enum PB_Usage
+{
+
+};
+
 struct TextureInfo
 {
 	int Width;

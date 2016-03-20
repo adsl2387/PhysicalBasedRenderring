@@ -1,6 +1,7 @@
 #pragma once
 #include "irenderlayerinterface.h"
 #include "IBuffer.h"
+#include "ITexture.h"
 
 class D3dRenderLayer :
 	public IRenderLayerInterface
@@ -15,7 +16,7 @@ public:
 
 	virtual bool SetIndexBuffer(IBuffer* pBuffer) ;
 
-	virtual Shader* CreateAndCompileShader(const char* filename);
+	virtual Shader* CreateShaderFromFile(const char* filename);
 
 	virtual bool SetVertexShader(Shader* shader);
 
@@ -23,6 +24,8 @@ public:
 
 	virtual void SetRenderState(RenderState* state);
 
-	
+	virtual ITexture* CreateTexture(const TextureInfo& textureinfo);
+
+
 };
 
