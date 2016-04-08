@@ -125,6 +125,8 @@
     <ClInclude Include="Common\TextureMgr.h" />
     <ClInclude Include="Common\Waves.h" />
     <ClInclude Include="Common\xnacollision.h" />
+    <ClInclude Include="D3D11RenderState.h" />
+    <ClInclude Include="D3D11RenderTarget.h" />
     <ClInclude Include="D3DPBRApp.h" />
     <ClInclude Include="D3dRenderLayer.h" />
     <ClInclude Include="Effects.h" />
@@ -135,6 +137,7 @@
     <ClInclude Include="PhysicalBasedRenderring.h" />
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="RenderStates.h" />
+    <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="VertexShader.h" />
     <ClInclude Include="ShaderFactory.h" />
@@ -154,6 +157,8 @@
     <ClCompile Include="Common\TextureMgr.cpp" />
     <ClCompile Include="Common\Waves.cpp" />
     <ClCompile Include="Common\xnacollision.cpp" />
+    <ClCompile Include="D3D11RenderState.cpp" />
+    <ClCompile Include="D3D11RenderTarget.cpp" />
     <ClCompile Include="D3DPBRApp.cpp" />
     <ClCompile Include="D3dRenderLayer.cpp" />
     <ClCompile Include="Effects.cpp" />
@@ -164,6 +169,7 @@
     <ClCompile Include="PhysicalBasedRenderring.cpp" />
     <ClCompile Include="PixelShader.cpp" />
     <ClCompile Include="RenderStates.cpp" />
+    <ClCompile Include="RenderTarget.cpp" />
     <ClCompile Include="VertexShader.cpp" />
     <ClCompile Include="ShaderFactory.cpp" />
     <ClCompile Include="Sky.cpp" />
