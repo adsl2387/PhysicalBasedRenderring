@@ -18,7 +18,7 @@ ShaderFactory* ShaderFactory::GetSingleton()
 	return &GShaderFactory;
 }
 
-Shader* ShaderFactory::CreateShaderFromFile(const char* filename)
+VertexShader* ShaderFactory::CreateShaderFromFile(const char* filename)
 {
 
 }

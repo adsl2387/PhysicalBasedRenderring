@@ -1,6 +1,6 @@
 #pragma once
 #include "PBObject.h"
-#include "Shader.h"
+#include "VertexShader.h"
 #include <map>
 using namespace std;
 
@@ -12,13 +12,13 @@ public:
 
 	static ShaderFactory* GetSingleton();
 
-	Shader* CreateShaderFromFile(const char* filename);
+	VertexShader* CreateShaderFromFile(const char* filename);
 
-	void ReleaseShader(Shader* shader);
+	void ReleaseShader(VertexShader* shader);
 
 private:
 
 
-	map<char*, Shader*> ShaderMap;
+	map<char*, VertexShader*> ShaderMap;
 };
 

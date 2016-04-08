@@ -113,18 +113,18 @@
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Common\Camera.h" />
-    <ClInclude Include="..\..\Common\d3dApp.h" />
-    <ClInclude Include="..\..\Common\d3dUtil.h" />
-    <ClInclude Include="..\..\Common\d3dx11effect.h" />
-    <ClInclude Include="..\..\Common\GameTimer.h" />
-    <ClInclude Include="..\..\Common\GeometryGenerator.h" />
-    <ClInclude Include="..\..\Common\LightHelper.h" />
-    <ClInclude Include="..\..\Common\MathHelper.h" />
-    <ClInclude Include="..\..\Common\TextureMgr.h" />
-    <ClInclude Include="..\..\Common\Waves.h" />
-    <ClInclude Include="..\..\Common\xnacollision.h" />
     <ClInclude Include="ClassMacro.h" />
+    <ClInclude Include="Common\Camera.h" />
+    <ClInclude Include="Common\d3dApp.h" />
+    <ClInclude Include="Common\d3dUtil.h" />
+    <ClInclude Include="Common\d3dx11effect.h" />
+    <ClInclude Include="Common\GameTimer.h" />
+    <ClInclude Include="Common\GeometryGenerator.h" />
+    <ClInclude Include="Common\LightHelper.h" />
+    <ClInclude Include="Common\MathHelper.h" />
+    <ClInclude Include="Common\TextureMgr.h" />
+    <ClInclude Include="Common\Waves.h" />
+    <ClInclude Include="Common\xnacollision.h" />
     <ClInclude Include="D3DPBRApp.h" />
     <ClInclude Include="D3dRenderLayer.h" />
     <ClInclude Include="Effects.h" />
@@ -133,9 +133,10 @@
     <ClInclude Include="ITexture.h" />
     <ClInclude Include="PBObject.h" />
     <ClInclude Include="PhysicalBasedRenderring.h" />
+    <ClInclude Include="PixelShader.h" />
     <ClInclude Include="RenderStates.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Shader.h" />
+    <ClInclude Include="VertexShader.h" />
     <ClInclude Include="ShaderFactory.h" />
     <ClInclude Include="Sky.h" />
     <ClInclude Include="stdafx.h" />
@@ -143,16 +144,16 @@
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Common\Camera.cpp" />
-    <ClCompile Include="..\..\Common\d3dApp.cpp" />
-    <ClCompile Include="..\..\Common\d3dUtil.cpp" />
-    <ClCompile Include="..\..\Common\GameTimer.cpp" />
-    <ClCompile Include="..\..\Common\GeometryGenerator.cpp" />
-    <ClCompile Include="..\..\Common\LightHelper.cpp" />
-    <ClCompile Include="..\..\Common\MathHelper.cpp" />
-    <ClCompile Include="..\..\Common\TextureMgr.cpp" />
-    <ClCompile Include="..\..\Common\Waves.cpp" />
-    <ClCompile Include="..\..\Common\xnacollision.cpp" />
+    <ClCompile Include="Common\Camera.cpp" />
+    <ClCompile Include="Common\d3dApp.cpp" />
+    <ClCompile Include="Common\d3dUtil.cpp" />
+    <ClCompile Include="Common\GameTimer.cpp" />
+    <ClCompile Include="Common\GeometryGenerator.cpp" />
+    <ClCompile Include="Common\LightHelper.cpp" />
+    <ClCompile Include="Common\MathHelper.cpp" />
+    <ClCompile Include="Common\TextureMgr.cpp" />
+    <ClCompile Include="Common\Waves.cpp" />
+    <ClCompile Include="Common\xnacollision.cpp" />
     <ClCompile Include="D3DPBRApp.cpp" />
     <ClCompile Include="D3dRenderLayer.cpp" />
     <ClCompile Include="Effects.cpp" />
@@ -161,8 +162,9 @@
     <ClCompile Include="ITexture.cpp" />
     <ClCompile Include="PBObject.cpp" />
     <ClCompile Include="PhysicalBasedRenderring.cpp" />
+    <ClCompile Include="PixelShader.cpp" />
     <ClCompile Include="RenderStates.cpp" />
-    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="VertexShader.cpp" />
     <ClCompile Include="ShaderFactory.cpp" />
     <ClCompile Include="Sky.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -175,8 +177,8 @@
     <ResourceCompile Include="PhysicalBasedRenderring.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\Common\Effects11.lib" />
-    <Library Include="..\..\Common\Effects11d.lib" />
+    <Library Include="Common\Effects11.lib" />
+    <Library Include="Common\Effects11d.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
