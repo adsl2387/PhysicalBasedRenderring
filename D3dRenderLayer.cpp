@@ -2,6 +2,7 @@
 #include "D3dRenderLayer.h"
 #include "VertexShader.h"
 #include "PixelShader.h"
+#include "RenderStates.h"
 #include <Windows.h>
 
 D3dRenderLayer::D3dRenderLayer(void)
@@ -238,7 +239,71 @@ bool D3dRenderLayer::SetPixelShader(PixelShader* shader)
 
 void D3dRenderLayer::SetRenderState(RenderState* state)
 {
-	
+	if (!state)
+	{
+		return;
+	}
+	switch (state->RenderStateType)
+	{
+	case RSType_BlendState:
+		md3dImmediateContext->OMSetBlendState(state->StateData.BlendState, state->BlendFactor, state->SimpleMask);
+		break;
+	case RSType_DepthStencilState:
+		md3dImmediateContext->OMSetDepthStencilState(state->StateData.DepthStencilState, state->SimpleMask);
+		break;
+	case RSType_RasterizereState:
+		md3dImmediateContext->RSSetState(state->StateData.RasterizerState);
+		break;
+	}
+}
+
+ITexture* D3dRenderLayer::CreateTexture(const TextureInfo& textureinfo)
+{
+	D3D11_TEXTURE2D_DESC TexDesc;
+	TexDesc.Width = textureinfo.Width;
+	TexDesc.Height = textureinfo.Height;
+	TexDesc.MipLevels = 1;
+	TexDesc.ArraySize = 1;
+	TexDesc.SampleDesc.Count = 1;
+	TexDesc.SampleDesc.Quality = 0;
+	TexDesc.Format = (DXGI_FORMAT)textureinfo.Format;
+	TexDesc.Usage = (D3D11_USAGE)textureinfo.Usage;
+	TexDesc.BindFlags = textureinfo.BindFlag;
+	TexDesc.CPUAccessFlags = 0;
+	TexDesc.MiscFlags = textureinfo.MiscFlag;
+
+	ID3D11Texture2D* Texture2D = 0;
+	HR(md3dDevice->CreateTexture2D(&TexDesc, 0, &Texture2D));
+
+	if (Texture2D)
+	{
+		D3D11Texture* pD3d11Texture2D = new D3D11Texture(Texture2D);
+		return pD3d11Texture2D;
+	}
+	else
+	{
+		return NULL;
+	}
+}
+
+void D3dRenderLayer::Present()
+{
+	mSwapChain->Present(0, 0);
+}
+
+void D3dRenderLayer::ClearRenderTarget(D3D11RenderTargetView* RenderTarget, const float* rgba)
+{
+	md3dImmediateContext->ClearRenderTargetView(RenderTarget->GetRenderTargetView(), rgba);
+}
+
+void D3dRenderLayer::ClearDepthStencil(D3D11DepthStencilView* DepthStencil, float Depth, UINT8 Stencil)
+{
+	md3dImmediateContext->ClearDepthStencilView(DepthStencil->GetDepthStencilView(), D3D11_CLEAR_DEPTH|D3D11_CLEAR_STENCIL, Depth, Stencil);
+}
+
+void D3dRenderLayer::SetViewport(D3D11Viewport* D3D11Viewport)
+{
+	md3dImmediateContext->RSSetViewports(1, &D3D11Viewport->Viewport);
 }
 
 VertexShader* D3dRenderLayer::CreateVertexShader(const char* filename)
@@ -260,6 +325,7 @@ VertexShader* D3dRenderLayer::CreateVertexShader(const char* filename)
 	{
 		VertexShader* pRet = new VertexShader;
 		pRet->SetShader(vertexShader);
+		return pRet;
 	}
 	else
 		return NULL;
@@ -284,6 +350,7 @@ PixelShader* D3dRenderLayer::CreatePixelShader(const char* filename)
 	{
 		PixelShader* pRet = new PixelShader;
 		pRet->SetShader(pixelShader);
+		return pRet;
 	}
 	else
 		return NULL;

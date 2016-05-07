@@ -133,6 +133,7 @@
     <ClInclude Include="IBuffer.h" />
     <ClInclude Include="IRenderLayerInterface.h" />
     <ClInclude Include="ITexture.h" />
+    <ClInclude Include="IViewport.h" />
     <ClInclude Include="PBObject.h" />
     <ClInclude Include="PhysicalBasedRenderring.h" />
     <ClInclude Include="PixelShader.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="IBuffer.cpp" />
     <ClCompile Include="IRenderLayerInterface.cpp" />
     <ClCompile Include="ITexture.cpp" />
+    <ClCompile Include="IViewport.cpp" />
     <ClCompile Include="PBObject.cpp" />
     <ClCompile Include="PhysicalBasedRenderring.cpp" />
     <ClCompile Include="PixelShader.cpp" />

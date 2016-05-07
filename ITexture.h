@@ -159,22 +159,55 @@ public:
 class D3D11Texture : public ITexture
 {
 public:
+	D3D11Texture();
 
+	D3D11Texture(ID3D11Texture2D* Texture2D);
+
+	virtual ~D3D11Texture();
+
+	ID3D11Texture2D* GetTexture2D();
+protected:
+	ID3D11Texture2D* D3D11Texture2D;
 };
 
 
 class D3D11RenderTargetView:public D3D11Texture
 {
 public:
+	D3D11RenderTargetView();
 
+	virtual ~D3D11RenderTargetView();
+
+	ID3D11RenderTargetView* GetRenderTargetView();
+
+protected:
+	ID3D11RenderTargetView*	RenderTargetView;
 };
 
 class D3D11DepthStencilView:public D3D11Texture
 {
 public:
+	D3D11DepthStencilView();
+
+	virtual ~D3D11DepthStencilView();
+
+	ID3D11DepthStencilView* GetDepthStencilView();
+
+protected:
+
+	ID3D11DepthStencilView* DepthStencilView;
 };
 
 class D3D11ShaderResourceView:public D3D11Texture
 {
 public:
+
+	D3D11ShaderResourceView();
+
+	virtual ~D3D11ShaderResourceView();
+
+
+	ID3D11ShaderResourceView* GetShaderResourceView();
+protected:
+	ID3D11ShaderResourceView* ShaderResourceView;
 };

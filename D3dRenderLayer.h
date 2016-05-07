@@ -2,6 +2,7 @@
 #include "irenderlayerinterface.h"
 #include "IBuffer.h"
 #include "ITexture.h"
+#include "IViewport.h"
 #include "d3dUtil.h"
 
 class D3dRenderLayer :
@@ -36,6 +37,8 @@ public:
 	virtual void ClearRenderTarget(D3D11RenderTargetView* RenderTarget, const float* rgba);
 
 	virtual void ClearDepthStencil(D3D11DepthStencilView* DepthStencil, float Depth, UINT8 Stencil);
+
+	virtual void SetViewport(D3D11Viewport* D3D11Viewport);
 
 private:
 	ID3D11Device* md3dDevice;
