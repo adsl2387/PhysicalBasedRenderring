@@ -107,7 +107,9 @@ public:
 	void SetMaterial(const PBRMaterial& mat)               { Mat->SetRawValue(&mat, 0, sizeof(PBRMaterial)); }
 	void SetDiffuseMap(ID3D11ShaderResourceView* tex)   { DiffuseMap->SetResource(tex); }
 	void SetEnvMap(ID3D11ShaderResourceView* tex)		{ EnvMap->SetResource(tex);}
+	void SetPrefilterMap(ID3D11ShaderResourceView* tex) {}
 
+	ID3DX11EffectTechnique* LUTSTech;
 	ID3DX11EffectTechnique* LUTTech;
 	ID3DX11EffectTechnique* Light1Tech;
 	ID3DX11EffectTechnique* Light2Tech;
@@ -148,6 +150,7 @@ public:
 	ID3DX11EffectVariable* DirLights;
 	ID3DX11EffectVariable* Mat;
 	ID3DX11EffectShaderResourceVariable* EnvMap;
+	ID3DX11EffectShaderResourceVariable* PrefilterMap;
 
 	ID3DX11EffectShaderResourceVariable* DiffuseMap;
 };

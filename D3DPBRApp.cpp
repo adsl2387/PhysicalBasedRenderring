@@ -64,6 +64,8 @@ D3DPBRApp::~D3DPBRApp(void)
 	ReleaseCOM(mLUTRTV);
 	ReleaseCOM(mLUTSRV);
 	ReleaseCOM(mLUTDSV);
+	ReleaseCOM(mQuadVB);
+	ReleaseCOM(mQuadIB);
 }
 
 void D3DPBRApp::DrawScene()
@@ -91,7 +93,7 @@ void D3DPBRApp::DrawScene()
 
 	mCam.UpdateViewMatrix();
 	DrawScene(mCam);
-
+	DrawLUT();
 	HR(mSwapChain->Present(0, 0));
 }
 
@@ -132,14 +134,14 @@ void D3DPBRApp::CreateLUT()
 	// Create a shader resource view to the cube map.
 	//
 
-	//D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
-	//srvDesc.Format = texDesc.Format;
-	//srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
-	//srvDesc.Texture2D.MipLevels = 0;
-	//srvDesc.Texture2D.MostDetailedMip = 0;
+	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
+	srvDesc.Format = texDesc.Format;
+	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+	srvDesc.Texture2D.MipLevels = -1;
+	srvDesc.Texture2D.MostDetailedMip = 0;
 
 
-	//HR(md3dDevice->CreateShaderResourceView(LUTTex, &srvDesc, &mLUTSRV));
+	HR(md3dDevice->CreateShaderResourceView(LUTTex, &srvDesc, &mLUTSRV));
 
 
 
@@ -186,7 +188,7 @@ void D3DPBRApp::CreateLUT()
 	GeometryGenerator::MeshData quad;
 	GeometryGenerator geoGen;
 	geoGen.CreateFullscreenQuad(quad);
-	int indexNum = quad.Indices.size();
+	mQuadIndexNum = quad.Indices.size();
 	
 	std::vector<Vertex::Basic32> vertices(quad.Vertices.size());
 	for (int i = 0; i < vertices.size(); i++)
@@ -206,17 +208,17 @@ void D3DPBRApp::CreateLUT()
 	dbd.Usage = D3D11_USAGE_DEFAULT;
 	D3D11_SUBRESOURCE_DATA vinitdata;
 	vinitdata.pSysMem = &vertices[0];
-	ID3D11Buffer* vb;
-	HR(md3dDevice->CreateBuffer(&dbd, &vinitdata, &vb));
+	
+	HR(md3dDevice->CreateBuffer(&dbd, &vinitdata, &mQuadVB));
 
 	std::vector<UINT> indeces(quad.Indices.begin(), quad.Indices.end());
 
 	dbd.BindFlags = D3D11_BIND_INDEX_BUFFER;
-	dbd.ByteWidth = sizeof(UINT) * indexNum;
+	dbd.ByteWidth = sizeof(UINT) * mQuadIndexNum;
 	vinitdata.pSysMem = &indeces[0];
 
-	ID3D11Buffer* ib;
-	HR(md3dDevice->CreateBuffer(&dbd, &vinitdata, &ib));
+	
+	HR(md3dDevice->CreateBuffer(&dbd, &vinitdata, &mQuadIB));
 
 	md3dImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	md3dImmediateContext->ClearRenderTargetView(mLUTRTV, reinterpret_cast<const float*>(&Colors::Black));
@@ -238,28 +240,52 @@ void D3DPBRApp::CreateLUT()
 		// Draw the Mesh.
 
 
-		md3dImmediateContext->IASetVertexBuffers(0, 1, &vb, &stride, &offset);
-		md3dImmediateContext->IASetIndexBuffer(ib, DXGI_FORMAT_R32_UINT, 0);
+		md3dImmediateContext->IASetVertexBuffers(0, 1, &mQuadVB, &stride, &offset);
+		md3dImmediateContext->IASetIndexBuffer(mQuadIB, DXGI_FORMAT_R32_UINT, 0);
 
 
 
 
 		activeMeshTech->GetPassByIndex(p)->Apply(0, md3dImmediateContext);
-		md3dImmediateContext->DrawIndexed(indexNum, 0, 0);
+		md3dImmediateContext->DrawIndexed(mQuadIndexNum, 0, 0);
 
 		//m_pSky->Draw(md3dImmediateContext, camera);
 
 		// Restore default
 		md3dImmediateContext->RSSetState(0);
 	}
-
-	ReleaseCOM(vb);
-	ReleaseCOM(ib);
-		
-	D3DX11_IMAGE_FILE_FORMAT ift;
 	
 	HR(D3DX11SaveTextureToFile(md3dImmediateContext, LUTTex, D3DX11_IFF_DDS, _T("lut.dds")));
 	ReleaseCOM(LUTTex);
+}
+
+void D3DPBRApp::DrawLUT()
+{
+	ID3DX11EffectTechnique* activeMeshTech = Effects::CommonPassFX->LUTSTech;
+	Effects::CommonPassFX->PrefilterMap->SetResource(mLUTSRV);
+	UINT stride = sizeof(Vertex::Basic32);
+	UINT offset = 0;
+	D3DX11_TECHNIQUE_DESC techDesc;
+	activeMeshTech->GetDesc( &techDesc );
+	for(UINT p = 0; p < techDesc.Passes; ++p)
+	{
+		// Draw the Mesh.
+
+
+		md3dImmediateContext->IASetVertexBuffers(0, 1, &mQuadVB, &stride, &offset);
+		md3dImmediateContext->IASetIndexBuffer(mQuadIB, DXGI_FORMAT_R32_UINT, 0);
+
+
+
+
+		activeMeshTech->GetPassByIndex(p)->Apply(0, md3dImmediateContext);
+		md3dImmediateContext->DrawIndexed(mQuadIndexNum, 0, 0);
+
+		//m_pSky->Draw(md3dImmediateContext, camera);
+
+		// Restore default
+		md3dImmediateContext->RSSetState(0);
+	}
 }
 
 void D3DPBRApp::UpdateScene(float dt)

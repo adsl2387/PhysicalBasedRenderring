@@ -32,6 +32,7 @@ Effect::~Effect()
 CommonPassEffect::CommonPassEffect(ID3D11Device* device, const std::wstring& filename)
 	: Effect(device, filename)
 {
+	LUTSTech      = mFX->GetTechniqueByName("LUTS");
 	LUTTech		  = mFX->GetTechniqueByName("LUT");
 	Light1Tech    = mFX->GetTechniqueByName("Light1");
 	Light2Tech    = mFX->GetTechniqueByName("Light2");
@@ -73,6 +74,7 @@ CommonPassEffect::CommonPassEffect(ID3D11Device* device, const std::wstring& fil
 	Mat               = mFX->GetVariableByName("gMaterial");
 	DiffuseMap        = mFX->GetVariableByName("gDiffuseMap")->AsShaderResource();
 	EnvMap			  = mFX->GetVariableByName("EnvMap")->AsShaderResource();
+	PrefilterMap	  = mFX->GetVariableByName("gPrefilterMap")->AsShaderResource();
 }
 
 CommonPassEffect::~CommonPassEffect()

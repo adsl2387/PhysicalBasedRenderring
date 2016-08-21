@@ -28,6 +28,8 @@ protected:
 	void DrawScene(Camera& camera);
 
 	void CreateLUT();
+
+	void DrawLUT();
 private:
 	PBRDirectionalLight mDirLights[3];
 	PBRMaterial mMeshMat;
@@ -48,7 +50,9 @@ private:
 	D3D11_VIEWPORT mLUTViewport;
 	Camera mCubeMapCamera[6];
 	Camera mCam;
-
+	ID3D11Buffer* mQuadVB;
+	ID3D11Buffer* mQuadIB;
+	int mQuadIndexNum;
 	static const int CubeMapSize = 512;
 };
 
