@@ -139,11 +139,20 @@ cbuffer cbPerObject
 
 // Nonnumeric values cannot be added to a cbuffer.
 Texture2D gDiffuseMap;
+Texture2D gPrefilterMap;
 
 SamplerState samAnisotropic
 {
 	Filter = ANISOTROPIC;
 	MaxAnisotropy = 4;
+
+	AddressU = WRAP;
+	AddressV = WRAP;
+};
+
+SamplerState samPrefilter
+{
+	Filter = MIN_MAG_MIP_POINT;
 
 	AddressU = WRAP;
 	AddressV = WRAP;
@@ -291,8 +300,25 @@ VertexOut LUTVS(VertexIn vin)
 float4 LUTPS(VertexOut pin) : SV_Target
 {
 	float4 color = float4(0.f, 0.f, 0.f, 0.f);
-	color.xy = IntegrateBRDF(pin.Tex.y, pin.Tex.x);
+	color.xy = IntegrateBRDF(1.0 - pin.Tex.y, pin.Tex.x);
 	return color;
+}
+
+float4 LUTPSS(VertexOut pin) : SV_Target
+{
+	float4 color = float4(0.f, 0.f, 0.f, 0.f);
+	color.xy = gPrefilterMap.Sample(samPrefilter, pin.Tex).xy;
+	return color;
+}
+
+technique11 LUTS
+{
+	pass P0
+	{
+		SetVertexShader( CompileShader( vs_5_0, LUTVS() ) );
+		SetGeometryShader( NULL );
+        SetPixelShader( CompileShader( ps_5_0, LUTPSS() ) );
+	}
 }
 
 technique11 LUT
