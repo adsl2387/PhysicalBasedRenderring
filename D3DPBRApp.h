@@ -26,6 +26,8 @@ protected:
 	void BuildCubeFaceCamera(float x, float y, float z);
 
 	void DrawScene(Camera& camera);
+
+	void CreateLUT();
 private:
 	PBRDirectionalLight mDirLights[3];
 	PBRMaterial mMeshMat;
@@ -36,10 +38,14 @@ private:
 	ID3D11RenderTargetView*	mDynamicCubeMapRTV[6];
 	ID3D11ShaderResourceView* mDynamicCubeMapSRV;
 	ID3D11DepthStencilView* mDynamicCubeMapDSV;
+	ID3D11RenderTargetView* mLUTRTV;
+	ID3D11ShaderResourceView* mLUTSRV;
+	ID3D11DepthStencilView* mLUTDSV;
 	ID3D11Buffer* m_pVB;
 	ID3D11Buffer* m_pIB;
 	int m_indexnum;
 	D3D11_VIEWPORT mCubeMapViewport;
+	D3D11_VIEWPORT mLUTViewport;
 	Camera mCubeMapCamera[6];
 	Camera mCam;
 

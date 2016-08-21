@@ -122,8 +122,9 @@ struct PBRMaterial
 	PBRMaterial() {ZeroMemory(this, sizeof(PBRMaterial));}
 
 	XMFLOAT4 Diffuse;
-	XMFLOAT4 Specular;
+	float Specular;
 	float roughness;
 	float metal;
+	float pad;
 };
 #endif // LIGHTHELPER_H

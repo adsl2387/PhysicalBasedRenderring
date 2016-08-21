@@ -32,6 +32,7 @@ Effect::~Effect()
 CommonPassEffect::CommonPassEffect(ID3D11Device* device, const std::wstring& filename)
 	: Effect(device, filename)
 {
+	LUTTech		  = mFX->GetTechniqueByName("LUT");
 	Light1Tech    = mFX->GetTechniqueByName("Light1");
 	Light2Tech    = mFX->GetTechniqueByName("Light2");
 	Light3Tech    = mFX->GetTechniqueByName("Light3");

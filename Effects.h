@@ -108,6 +108,7 @@ public:
 	void SetDiffuseMap(ID3D11ShaderResourceView* tex)   { DiffuseMap->SetResource(tex); }
 	void SetEnvMap(ID3D11ShaderResourceView* tex)		{ EnvMap->SetResource(tex);}
 
+	ID3DX11EffectTechnique* LUTTech;
 	ID3DX11EffectTechnique* Light1Tech;
 	ID3DX11EffectTechnique* Light2Tech;
 	ID3DX11EffectTechnique* Light3Tech;

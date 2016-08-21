@@ -1,9 +1,10 @@
 struct PBRMaterial
 {
 	float4 diffuse;
-	float4 specular;
+	float specular;
 	float roughness;
 	float metal;
+	float pad;
 };
 
 struct PBRDirectionalLight

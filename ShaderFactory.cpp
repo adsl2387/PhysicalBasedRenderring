@@ -20,5 +20,5 @@ ShaderFactory* ShaderFactory::GetSingleton()
 
 VertexShader* ShaderFactory::CreateShaderFromFile(const char* filename)
 {
-
+	return NULL;
 }

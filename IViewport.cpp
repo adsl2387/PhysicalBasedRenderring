@@ -2,12 +2,12 @@
 #include "IViewport.h"
 
 
-IViewport::IViewport(void)
-{
-}
-
-
-IViewport::~IViewport(void)
-{
-}
+//IViewport::IViewport(void)
+//{
+//}
+//
+//
+//IViewport::~IViewport(void)
+//{
+//}
 

@@ -16,15 +16,17 @@ namespace Vertex
 	{
 		XMFLOAT3 Pos;
 		XMFLOAT3 Normal;
+		XMFLOAT3 Tangent;
 		XMFLOAT2 Tex;
 	};
+
 }
 
 class InputLayoutDesc
 {
 public:
 	// Init like const int A::a[4] = {0, 1, 2, 3}; in .cpp file.
-	static const D3D11_INPUT_ELEMENT_DESC Basic32[3];
+	static const D3D11_INPUT_ELEMENT_DESC Basic32[4];
 	static const D3D11_INPUT_ELEMENT_DESC Pos[1];
 };
 
